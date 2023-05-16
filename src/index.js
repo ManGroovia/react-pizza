@@ -6,14 +6,13 @@ import App from "./App";
 import Home from "./pages/Home";
 
 import Cart from "./pages/Cart";
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {store} from './redux/store';
+import { Provider } from 'react-redux'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Provider store={store}><App /></Provider>,
     errorElement: <NotFound />,
     children: [
       {
